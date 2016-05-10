@@ -1,5 +1,6 @@
 package com.robot.me.annotation;
 
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import javax.annotation.processing.AbstractProcessor;
@@ -29,5 +30,12 @@ public class ParamsProcessor extends AbstractProcessor{
     @Override
     public SourceVersion getSupportedSourceVersion() {
         return SourceVersion.latestSupported();
+    }
+
+    @Override
+    public Set<String> getSupportedAnnotationTypes() {
+        Set<String> supportTypes = new LinkedHashSet<>();
+        supportTypes.add(Params.class.getCanonicalName());
+        return super.getSupportedAnnotationTypes();
     }
 }
